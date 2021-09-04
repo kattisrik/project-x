@@ -9,16 +9,14 @@ const Navbar = dynamic(
 );
 const ProjectX = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={ theme }>
-      <Paper style={ { height: "100vh" } }>
-        <Container disableGutters={ true } maxWidth={ false }>
-          <div class="container">
-            <Navbar />
-            <Component { ...pageProps } />
-          </div>
-        </Container>
-      </Paper>
-    </ThemeProvider>
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <main class='container-fluid'>
+        <Component { ...pageProps } />
+      </main>
+    </>
   );
 }
 
