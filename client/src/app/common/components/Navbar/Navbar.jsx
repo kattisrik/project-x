@@ -1,13 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-// import Typography from '@material-ui/core/Typography';
-// import Link from "next/link";
-const useStyles = makeStyles((theme) => ({
+import Link from "next/link";
 
-}));
 const PAGES = [
     {
         url: '/home',
@@ -25,36 +19,33 @@ const PAGES = [
 
 const Navbar = ({ children }) => {
     return (
-        <div>
-            {/* <AppBar position='static'>
-                <Tabs>
-                    { PAGES.map((page, index) => {
-                        return <Tab label={ page.title } href={ page.url } key={ index } />
-                    }) }
-                </Tabs>
-            </AppBar> */}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <>
+            <nav class="navbar py-4 fixed-top navbar-expand-lg navbar-light" style={ { backgroundColor: "#e3f2fd" } }>
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/home">Project X</a>
+                    <Link href="/home" >
+                        <a class="navbar-brand" href="/home">Project X</a>
+                    </Link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-tabs">
                             { PAGES.map((page, index) => {
                                 return <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href={ `${page.url}` }>{ page.title }</a>
+                                    <Link href={ `${page.url}` }>
+                                        <a class="nav-link" aria-current="page" href={ `${page.url}` }>{ page.title }</a>
+                                    </Link>
                                 </li>;
                             }) }
                         </ul>
-                        {/* <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form> */}
                     </div>
                 </div>
+                <div class="col-md-3 align-items-center justify-content-center d-flex">
+                    <button type="button" class="btn btn-outline-primary me-2">Login</button>
+                    <button type="button" class="btn btn-primary">Sign-up</button>
+                </div>
             </nav>
-        </div>
+        </>
     )
 };
 
